@@ -17,7 +17,7 @@ Puis AskUserQuestion, une question : « Comment tu veux répondre ? »
 - **Ici, une question à la fois** : je te pose les questions dans le chat.
 
 **Tout sur une page** : ouvre `open ~/.claude/skills/bienvenue/questionnaire.html` (Mac) ou `start "" "%USERPROFILE%\.claude\skills\bienvenue\questionnaire.html"` (Windows). Dis en une ligne : « Réponds sur la page, clique Copier mes réponses en bas, puis colle-les ici. » Attends le collage.
-Quand le texte collé arrive (il commence par « Configure mon kit Claude avec ces réponses ») : fais les étapes 3 à 8 dans l'ordre avec ces réponses, sans reposer une seule question qui y est (une réponse « (pas répondu) » = choix recommandé pour les clics, « À REMPLIR » pour le texte). Étape 5 : le choix des logiciels est déjà fait, saute l'étape 2 de `logiciels`. Étape 6 : si « Créer du contenu » est coché, lance `ma-marque` en mode express (ses étapes 1 à 4 sont déjà répondues). Ce qui reste à faire à la main (coller la réponse de ChatGPT, donner le logo, ses codes couleurs) : demande-le au moment où tu en as besoin.
+Quand le texte collé arrive (il commence par « Configure mon kit Claude avec ces réponses ») : fais les étapes 3 à 8 dans l'ordre (7 bis comprise) avec ces réponses, sans reposer une seule question qui y est (une réponse « (pas répondu) » = choix recommandé pour les clics, « À REMPLIR » pour le texte). Étape 5 : le choix des logiciels est déjà fait, saute l'étape 2 de `logiciels`. Étape 6 : si « Créer du contenu » est coché, lance `ma-marque` en mode express (ses étapes 1 à 4 sont déjà répondues). Ce qui reste à faire à la main (coller la réponse de ChatGPT, donner le logo, ses codes couleurs) : demande-le au moment où tu en as besoin.
 **Ici** : continue à l'étape 2.
 
 ## 2. Les questions (AskUserQuestion, option recommandée en premier)
@@ -66,6 +66,15 @@ Si l'outil de tâches planifiées de l'app est disponible (`create_scheduled_tas
 « Lance le skill audit-croyances (~/.claude/skills/audit-croyances/SKILL.md) et suis-le : génère la page d'audit du jour dans ~/Documents/Brain/04-Audits/, ouvre-la, puis dis en une ligne : "Ton audit du dimanche est prêt. Coche tout, clique sur Copier, colle-le dans un chat et écris go." »
 Dis en une ligne qu'elle tourne seulement si l'app Claude est ouverte. Outil absent : dis-lui juste « Le dimanche, écris audit ».
 
+## 7 bis. Les connecteurs Google (mails, agenda, Drive)
+Demande (AskUserQuestion, multiSelect, tout coché par défaut) : Gmail (Recommandé) · Google Agenda (Recommandé) · Google Drive (Recommandé) · Pas maintenant. Une ligne d'explication : « Je pourrai lire tes mails, ton agenda et tes fichiers quand tu me le demandes. Je n'envoie jamais rien sans toi. »
+Si au moins un est coché :
+- Ouvre la page officielle (vérifiée le 20/10/2026 sur support.claude.com) : Mac `open https://claude.ai/customize/connectors`, Windows `start "" https://claude.ai/customize/connectors`.
+- Action de la personne, une ligne par connecteur coché : « Clique Gmail > Connect, choisis ton compte Google, coche toutes les autorisations, clique Autoriser. » Pareil pour Google Calendar et Google Drive.
+- Forfait Team ou Enterprise : si le bouton Connect n'apparaît pas, c'est que l'admin de l'organisation doit d'abord les activer. Dis-le en une ligne.
+- Attends qu'elle dise « c'est fait », puis demande « Tu vois bien "Connected" à côté de chaque connecteur ? » (oui / non). Si non : refais la ligne d'action pour celui qui manque.
+- Les connecteurs ne sont utilisables qu'à partir du prochain chat : ne les teste pas ici, le message final le dit.
+
 ## 8. Ce que je sais faire (le message final, court)
 Ouvre le mode d'emploi illustré : `open ~/Documents/Brain/MODE-EMPLOI.html` (Mac) ou `start "" "%USERPROFILE%\Documents\Brain\MODE-EMPLOI.html"` (Windows). Puis écris :
 
@@ -77,8 +86,8 @@ C'est prêt, <Prénom>. 5 phrases à essayer :
 - « Fais-moi une fiche de cette vidéo YouTube : <lien> »
 - « Challenge-moi » → ce que tu dis vs ce que tu fais
 
-Bonus en 1 clic (facultatif) :
-- Tes mails, agenda, Drive : claude.ai > Customize > Connectors > Gmail / Google Calendar / Google Drive
+Branchés : <Gmail / Agenda / Drive, ceux connectés à l'étape 7 bis>. Essaie : « Qu'est-ce que j'ai de prévu cette semaine ? »
+(Pas branchés ? Plus tard : claude.ai/customize/connectors)
 
 Ouvre un nouveau chat : tout est actif.
 ```
